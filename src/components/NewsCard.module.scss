@@ -1,0 +1,264 @@
+.card {
+  width: 100%;
+  background: linear-gradient(135deg, #1d1239, #020b10);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .left {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 14px;
+
+    .date {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+
+      .dateDay { font-weight: 700; color: #fff; }
+      .dateRest { font-weight: 400; color: #fff; }
+    }
+
+    .reach {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+
+      .reachNum { font-weight: 700; color: #fff; }
+      .reachText { font-weight: 400; color: #fff; }
+    }
+
+    .traffic {
+      color: #fff;
+
+      .country { font-weight: 400; }
+      .percent { font-weight: 700; }
+    }
+  }
+
+  .sentimentRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .sentiment {
+      text-transform: capitalize;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      background: #e74c3c;
+      color: #fff;
+    }
+    .sentIcon { font-size: 16px; color: #aaa; }
+  }
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+
+  a {
+    color: #3ea6ff;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 13px;
+
+  .metaIcon {
+    font-size: 18px;
+    color: #aaa;
+    margin: 0 3px 0 0;
+  }
+
+  .linkDomain {
+    color: #3ea6ff;
+    font-weight: 300;
+  }
+
+  .flag {
+    width: 20px;
+    height: 14px;
+    border-radius: 2px;
+  }
+
+  .countryName,
+  .lang,
+  .authors {
+    font-weight: 400;
+    color: #fff;
+  }
+}
+
+.snippet {
+  p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  .mark {
+    background: rgba(62, 166, 255, 0.2);
+    color: #3ea6ff;
+    padding: 0 4px;
+    border-radius: 4px;
+  }
+  .showMore {
+    margin-top: 8px;
+    background: none;
+    border: none;
+    color: #3ea6ff;
+    font-size: 13px;
+    cursor: pointer;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+.tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .tag {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 16px;
+    font-size: 13px;
+
+    .tagIcon { font-size: 14px; color: #3ea6ff; }
+    .tagName { color: #fff; }
+    .tagCount { color: #aaa; }
+  }
+}
+
+.linksRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 10px;
+  gap: 18px;
+
+  .originalBtn {
+    background-color: #383838; 
+    border: 1px solid #383838; 
+    color: #3ea6ff;            
+    padding: 7px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .originalBtn:hover {
+    background-color: #414141; 
+  }
+  
+
+  .dupInfo {
+    font-size: 15px;
+    color: #aaa;
+
+    .dupCount { color: #fff; font-weight: 700; }
+  }
+}
+
+.dupPreview {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .dpHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+
+    .dpDate { color: #aaa; font-weight: 400; }
+    .dpReach {
+      color: #fff;
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+
+      .dpReachText { color: #aaa; font-size: 12px; }
+    }
+    .dpIcon { margin-left: auto; color: #aaa; }
+  }
+
+  .dpTitle {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3ea6ff;
+  }
+
+  .dpMeta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+
+    .dpFavicon,
+    .dpFlag {
+      width: 16px;
+      height: 16px;
+      border-radius: 2px;
+    }
+    .dpSourceName {
+      color: #3ea6ff; 
+    }
+    .dpCountry,
+    .dpAuthors {
+      color: #fff;
+    }
+    .dpUserIcon { font-size: 14px; color: #aaa; }
+  }
+}
+
+.viewAllBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover { background: rgba(255, 255, 255, 0.1); }
+}
+
+.viewArrow { transition: transform 0.2s ease; }
+.rotated { transform: rotate(180deg); }
