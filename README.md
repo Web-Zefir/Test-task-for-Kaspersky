@@ -16,7 +16,7 @@
 
 1. **Клонировать репозиторий:**
 
-   bash
+   ```bash
    git clone https://github.com/Web-Zefir/Test-task-for-Kaspersky.git
    cd Test-task-for-Kaspersky
 
