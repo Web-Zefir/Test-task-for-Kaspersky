@@ -13,10 +13,12 @@ git clone https://github.com/Web-Zefir/Test-task-for-Kaspersky.git
 cd Test-task-for-Kaspersky
 ```
 2. Установите зависимости:  
-```bash npm install
+```bash 
+npm install
 ```  
 3. Запустите dev-сервер:  
-```bash npm run dev
+```bash 
+npm run dev
 ```  
 Приложение будет доступно по адресу: http://localhost:5173
 
