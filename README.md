@@ -8,14 +8,13 @@
 - TypeScript - для строгой типизации
 - Vite - для сборки проекта
 - SCSS/Sass - для стилизации
-- React Icons - для иконок
+- @ant-design/icons - для иконок
 - CSS Modules - для изоляции стилей
-- date-fns - для работы с датами
 
 **Инструкция по запуску**  
 1. Клонируйте репозиторий:  
 ```bash
-git clone https://github.com/Web-Zefir/Test-task-for-Kaspersky.git 
+git clone https://github.com/Web-Zefir/Test-task-for-Kaspersky.git
 cd Test-task-for-Kaspersky
 ```
 2. Установите зависимости:  
