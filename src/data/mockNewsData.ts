@@ -13,29 +13,28 @@ export interface IData_SnippetNews {
   TI: string;
   URL: string;
   DOM: string;
-  DP: string; // "YYYY-MM-DDTHH:MM:SS"
+  DP: string; 
   LANG: string;
   REACH: number;
   KW: IData_TagItem[];
   AU: string[];
   CNTR: string;
   CNTR_CODE: string;
-  SENT: string; // "positive", "negative", "neutral"
+  SENT: string; 
   TRAFFIC: IData_TrafficItem[];
-  FAV?: string; // URL к фавикону
-  HIGHLIGHTS: string[]; // Блоки содержимого новости с ключевыми словами
+  FAV?: string;
+  HIGHLIGHTS: string[]; 
   DUPLICATES?: number;
 }
 
 export const mockData: IData_SnippetNews = {
   ID: 260855433,
   TI: "Antivirus leggero: i migliori e più efficaci (free e a pagamento) 2024",
-  // Поле AB (abstract) удалено, так как не используется
-  URL: "https://www.punto-info.it/antivirus-leggero-i-migliori-e-piu-efficaci-free-e-a-pagamento-2024.html",
+  URL: "#",
   DOM: "punto-info.it",
-  DP: "2024-06-18T21:00:00", // Дата из ТЗ для отображения
+  DP: "2024-06-18T21:00:00", 
   LANG: "en",
-  REACH: 211000, // 211K из ТЗ
+  REACH: 211000, 
   KW: [
     { value: "AutoPilot 5000", count: 5 },
     { value: "InnovTech", count: 5 },
@@ -44,20 +43,20 @@ export const mockData: IData_SnippetNews = {
     { value: "security", count: 7 },
     { value: "software", count: 4 },
     { value: "technology", count: 6 },
-    { value: "Kaspersky", count: 1 }, // Для демонстрации, что теги могут быть любыми
+    { value: "Kaspersky", count: 1 }, 
   ],
-  AU: ["Emily C.", "Taormina A.", "John D.", "Maria S."], // Больше авторов для демонстрации "et al."
+  AU: ["Emily C.", "Taormina A.", "John D.", "Maria S."], 
   CNTR: "Austria",
-  CNTR_CODE: "at", // Код страны для Австрии
-  SENT: "positive", // Изменяем на "positive" как на макете ТЗ
+  CNTR_CODE: "at", 
+  SENT: "positive",
   TRAFFIC: [
     { value: "Austria", count: 0.38 },
     { value: "USA", count: 0.12 },
     { value: "Italian", count: 0.08 },
-    { value: "Germany", count: 0.05 }, // Добавляем еще данные, чтобы было из чего выбирать Top 3
+    { value: "Germany", count: 0.05 },
     { value: "France", count: 0.03 },
   ],
-  FAV: "https://www.punto-info.it/favicon.ico", // Пример реального фавикона
+  FAV: "#", 
   HIGHLIGHTS: [
     "...leading innovator in <kw>InnovTech</kw> in <kw>autonomous driving</kw> technology...",
     "This next-generation <kw>autonomous driving</kw> solution promises to revolutionize the way...",

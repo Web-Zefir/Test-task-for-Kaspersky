@@ -9,7 +9,7 @@ import {
   UserOutlined,
   CaretDownOutlined,
   CaretUpOutlined,
-  LinkOutlined, // Используется для заглушки фавикона
+  LinkOutlined,
   ExclamationCircleOutlined,
   BorderOutlined,
 } from '@ant-design/icons';
@@ -149,11 +149,11 @@ const NewsCard: React.FC<NewsCardProps> = ({ data }) => {
             alt="Favicon"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
-              target.style.display = 'none'; // Просто скрываем сломанное изображение
+              target.style.display = 'none';
             }}
           />
         ) : (
-          <LinkOutlined className={styles.faviconPlaceholder} /> // Используем LinkOutlined как заглушку
+          <LinkOutlined className={styles.faviconPlaceholder} /> 
         )}
         <a href={`https://${data.DOM}`} className={styles.domainLink} target="_blank" rel="noreferrer">
           {data.DOM}
