@@ -1,79 +1,230 @@
+$primary-dark-bg: #1d1239;
+$secondary-dark-bg: #020b10;
+$card-border-color: rgba(255, 255, 255, 0.05);
+
+$text-color-primary: #fff;
+$text-color-secondary: #999;
+$link-color: #3ea6ff;
+
+$positive-sentiment-bg: #44eb99;
+$positive-sentiment-text: #000;
+
+$negative-sentiment-bg: #e74c3c;
+$neutral-sentiment-bg: #808080;
+
+$keyword-highlight-bg: #1a7dd3;
+$keyword-highlight-color: #fff;
+
 .card {
   width: 100%;
-  background: linear-gradient(135deg, #1d1239, #020b10);
+  max-width: 800px;
+  background: linear-gradient(135deg, $primary-dark-bg 0%, $secondary-dark-bg 100%);
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  color: #fff;
+  color: $text-color-primary;
   font-family: 'Segoe UI', sans-serif;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
+  border: 1px solid $card-border-color;
+  box-sizing: border-box;
+
+  :global {
+    .ant-btn {
+      border-radius: 6px;
+      font-weight: 400;
+      transition: all 0.3s ease;
+      height: 36px;
+      padding: 0 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .ant-btn-primary {
+      background-color: $link-color;
+      border-color: $link-color;
+      color: $text-color-primary;
+
+    }
+
+    .ant-btn-link {
+      color: $link-color;
+      padding: 0;
+      height: auto;
+      line-height: normal;
+      text-decoration: none;
+
+      
+      & > span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .anticon {
+        font-size: 13px;
+      }
+    }
+
+    .ant-btn-default {
+      background-color: rgba(255, 255, 255, 0.1); 
+      border-color: rgba(255, 255, 255, 0.1); 
+      color: $link-color;
+    }
+
+    .ant-dropdown-menu {
+      background-color: #2a1f49;
+      border-radius: 8px;
+      padding: 8px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      .ant-dropdown-menu-item {
+        color: $text-color-primary;
+        padding: 8px 16px;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.15);
+        }
+      }
+    }
+
+    .anticon {
+      vertical-align: middle;
+    }
+
+    .ant-tag {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: $text-color-primary;
+        font-size: 13px;
+        padding: 4px 12px;
+        border-radius: 16px;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        height: auto;
+        line-height: normal;
+        margin: 0;
+
+        .anticon {
+          display: none;
+        }
+    }
+  }
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 24px;
 
   .left {
     display: flex;
     flex-wrap: wrap;
+    align-items: baseline;
     gap: 16px;
     font-size: 14px;
+    color: $text-color-secondary;
 
     .date {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-
-      .dateDay { font-weight: 700; color: #fff; }
-      .dateRest { font-weight: 400; color: #fff; }
+      .dateDay {
+        font-weight: 500;
+        color: $text-color-primary;
+      }
+      .dateMonthYear {
+        font-weight: 400;
+        color: $text-color-secondary;
+      }
     }
-
     .reach {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-
-      .reachNum { font-weight: 700; color: #fff; }
-      .reachText { font-weight: 400; color: #fff; }
+      .reachNum {
+        font-weight: 500;
+        color: $text-color-primary;
+      }
+      .reachText {
+        font-weight: 400;
+        color: $text-color-secondary;
+      }
     }
 
     .traffic {
-      color: #fff;
-
-      .country { font-weight: 400; }
-      .percent { font-weight: 700; }
+      color: $text-color-secondary;
+      white-space: nowrap;
+      .trafficCountry {
+        font-weight: 400;
+        color: $text-color-secondary;
+      }
+      .trafficPercent {
+        font-weight: 500;
+        color: $text-color-primary;
+      }
     }
   }
 
-  .sentimentRow {
+  .sentimentSection {
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-left: auto;
 
-    .sentiment {
+    .sentimentBadge {
       text-transform: capitalize;
       padding: 4px 10px;
       border-radius: 6px;
       font-size: 12px;
       font-weight: 500;
-      background: #e74c3c;
-      color: #fff;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      &.sentimentPositive {
+        background: $positive-sentiment-bg;
+        color: $positive-sentiment-text;
+      }
+      &.sentimentNegative {
+        background: $negative-sentiment-bg;
+        color: $text-color-primary;
+      }
+      &.sentimentNeutral {
+        background: $neutral-sentiment-bg;
+        color: $text-color-primary;
+      }
     }
-    .sentIcon { font-size: 16px; color: #aaa; }
+
+    .headerIcon {
+      font-size: 16px;
+      color: $text-color-secondary;
+      border: 1px solid $text-color-secondary;
+      padding: 2px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+    }
+    .exclamationIconContainer {
+      position: relative;
+      .exclamationIcon {
+        font-size: 10px;
+        color: $text-color-primary;
+      }
+    }
   }
 }
 
 .title {
   margin: 0;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
   line-height: 1.4;
+  color: $link-color;
 
   a {
-    color: #3ea6ff;
+    color: inherit;
     text-decoration: none;
     &:hover { text-decoration: underline; }
   }
@@ -83,18 +234,32 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 10px;
   font-size: 13px;
+  color: $text-color-secondary;
 
-  .metaIcon {
-    font-size: 18px;
-    color: #aaa;
-    margin: 0 3px 0 0;
+  .globalIcon {
+    font-size: 16px;
+    color: $text-color-secondary;
   }
 
-  .linkDomain {
-    color: #3ea6ff;
+  .favicon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    border-radius: 2px;
+  }
+
+  .faviconPlaceholder {
+    font-size: 16px;
+    color: $text-color-secondary;
+  }
+
+  .domainLink {
+    color: $link-color;
     font-weight: 300;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
   }
 
   .flag {
@@ -103,11 +268,14 @@
     border-radius: 2px;
   }
 
-  .countryName,
   .lang,
   .authors {
     font-weight: 400;
-    color: #fff;
+    color: $text-color-secondary;
+  }
+  .authorIcon {
+    font-size: 16px;
+    color: $text-color-secondary;
   }
 }
 
@@ -117,21 +285,19 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 1.6;
+    color: $text-color-primary;
   }
-  .mark {
-    background: rgba(62, 166, 255, 0.2);
-    color: #3ea6ff;
-    padding: 0 4px;
+  .keywordHighlight {
+    background: $keyword-highlight-bg;
+    color: $keyword-highlight-color;
+    padding: 2px 4px;
     border-radius: 4px;
-  }
-  .showMore {
-    margin-top: 8px;
-    background: none;
     border: none;
-    color: #3ea6ff;
-    font-size: 13px;
-    cursor: pointer;
-    &:hover { text-decoration: underline; }
+    box-decoration-break: clone;
+    font-weight: 500;
+  }
+  .showMoreButton {
+    margin-top: 8px;
   }
 }
 
@@ -140,125 +306,170 @@
   flex-wrap: wrap;
   gap: 8px;
 
-  .tag {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 4px 8px;
-    border-radius: 16px;
-    font-size: 13px;
+  .antTagCustom {
+      .tagName {
+          color: $text-color-primary;
+      }
+      .tagCount {
+          color: $text-color-secondary;
+      }
+  }
 
-    .tagIcon { font-size: 14px; color: #3ea6ff; }
-    .tagName { color: #fff; }
-    .tagCount { color: #aaa; }
+  .showAllTagsButton {
+    background: transparent;
+    color: $link-color;
+    font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 16px;
+    cursor: pointer;
+    &:hover { text-decoration: underline; }
   }
 }
 
 .linksRow {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-bottom: 10px;
-  gap: 18px;
+  align-items: center;
+  gap: 20px;
+  padding-top: 10px;
 
-  .originalBtn {
-    background-color: #383838; 
-    border: 1px solid #383838; 
-    color: #3ea6ff;            
-    padding: 7px 12px;
-    font-size: 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  .originalSourceButton {
+    
   }
-  
-  .originalBtn:hover {
-    background-color: #414141; 
-  }
-  
 
-  .dupInfo {
+  .duplicatesSection {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: auto;
+  }
+
+  .duplicatesInfo {
     font-size: 15px;
-    color: #aaa;
+    color: $text-color-secondary;
 
-    .dupCount { color: #fff; font-weight: 700; }
+    .duplicatesCount {
+      color: $text-color-primary;
+      font-weight: 500;
+    }
+  }
+
+  .byRelevanceDropdown {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: $neutral-sentiment-bg;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+
+    .byRelevanceIcon {
+      font-size: 12px;
+    }
   }
 }
 
-.dupPreview {
+.duplicatePreviewCard {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 8px;
 
-  .dpHeader {
+  .duplicatePreviewHeader {
     display: flex;
     align-items: center;
     gap: 12px;
     font-size: 13px;
+    color: $text-color-secondary;
 
-    .dpDate { color: #aaa; font-weight: 400; }
-    .dpReach {
-      color: #fff;
+    .duplicateDateDay {
+        font-weight: 400;
+        color: $text-color-primary;
+    }
+    .duplicateDateMonthYear {
+        font-weight: 200;
+        color: $text-color-secondary;
+    }
+
+    .duplicatePreviewReach {
+      color: $text-color-primary;
       display: flex;
       align-items: baseline;
       gap: 4px;
 
-      .dpReachText { color: #aaa; font-size: 12px; }
+      .duplicateReachNum {
+          font-weight: 500;
+          color: $text-color-primary;
+      }
+      .duplicateReachText {
+          font-weight: 400;
+          color: $text-color-secondary;
+      }
     }
-    .dpIcon { margin-left: auto; color: #aaa; }
+    .duplicatePreviewIcons {
+      margin-left: auto;
+      display: flex;
+      gap: 4px;
+    }
+    .duplicateHeaderIcon {
+        font-size: 16px;
+        color: $text-color-secondary;
+        border: 1px solid $text-color-secondary;
+        padding: 2px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+    }
+    .exclamationIconContainer {
+        position: relative;
+        .exclamationIcon {
+            font-size: 10px;
+            color: $text-color-primary;
+        }
+    }
   }
 
-  .dpTitle {
+  .duplicatePreviewTitle {
     margin: 0;
     font-size: 16px;
     font-weight: 500;
-    color: #3ea6ff;
+    color: $link-color;
   }
 
-  .dpMeta {
+  .duplicatePreviewMeta {
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 12px;
+    color: $text-color-secondary;
 
-    .dpFavicon,
-    .dpFlag {
+    .duplicatePreviewFavicon {
       width: 16px;
       height: 16px;
+      object-fit: contain;
       border-radius: 2px;
     }
-    .dpSourceName {
-      color: #3ea6ff; 
+    .duplicatePreviewSourceLink {
+      color: $link-color;
+      font-weight: 300;
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
     }
-    .dpCountry,
-    .dpAuthors {
-      color: #fff;
+    .duplicatePreviewCountry,
+    .duplicatePreviewAuthors {
+      color: $text-color-secondary;
     }
-    .dpUserIcon { font-size: 14px; color: #aaa; }
+    .duplicatePreviewAuthorIcon {
+      font-size: 14px;
+      color: $text-color-secondary;
+    }
   }
 }
-
-.viewAllBtn {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 0;
-  background: transparent;
-  border: 1px solid #fff;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-
-  &:hover { background: rgba(255, 255, 255, 0.1); }
-}
-
-.viewArrow { transition: transform 0.2s ease; }
-.rotated { transform: rotate(180deg); }
